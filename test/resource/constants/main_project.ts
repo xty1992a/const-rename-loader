@@ -1,0 +1,3 @@
+export const GET_MAIN_PROJECT = 'GET_MAIN_PROJECT'
+
+export const SET_MAIN_PROJECT = 'SET_MAIN_PROJECT'

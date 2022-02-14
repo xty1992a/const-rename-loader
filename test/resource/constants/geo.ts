@@ -1,0 +1,5 @@
+export const GET_REGIONS = 'GET_REGIONS'
+export const GET_REGIONS_SUCCESS = 'GET_REGIONS_SUCCESS'
+export const GET_REGIONS_FAIL = 'GET_REGIONS_FAIL'
+
+export const SET_CITY_MSG = 'SET_CITY_MSG'

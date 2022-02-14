@@ -1,0 +1,2 @@
+export const SELECT_AREA = 'SELECT_AREA'
+export const TOGGLE_TABBAR = 'TOGGLE_TABBAR'

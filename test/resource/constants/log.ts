@@ -1,0 +1,2 @@
+export const SET_NEW_USER_STATE = 'SET_NEW_USER_STATE'
+export const SET_PHONE_NUM = 'SET_PHONE_NUM'

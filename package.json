@@ -1,0 +1,27 @@
+{
+  "name": "@redbuck/const-rename-loader",
+  "version": "1.0.0",
+  "description": "混淆常量名称",
+  "repository": "",
+  "main": "dist/loader.js",
+  "scripts": {
+    "build": "tsc -p ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/webpack": "4",
+    "glob": "^7.2.0",
+    "loader-utils": "2",
+    "schema-utils": "^4.0.0",
+    "ts-morph": "^13.0.3",
+    "ts-node": "^10.5.0",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "@types/loader-utils": "^2.0.3",
+    "incstr": "^1.2.3"
+  }
+}
