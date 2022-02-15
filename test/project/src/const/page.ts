@@ -1,0 +1,5 @@
+export const PAGE_1 = 'page-1'
+export const PAGE_2 = 'page-2'
+export const PAGE_3 = 'page-3'
+export const PAGE_4 = 'page-4'
+export const PAGE_5 = 'page-5'

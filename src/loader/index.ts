@@ -2,7 +2,7 @@ import { getOptions } from 'loader-utils';
 import {validate} from 'schema-utils';
 import webpack = require('webpack')
 import {Schema} from "schema-utils/declarations/validate";
-import {handleExport} from "./handle-export";
+import {ConstHolder} from '../utils/const-holder'
 
 const schema: Schema = {
   "type": "object",
@@ -38,8 +38,7 @@ export function pitch(this: webpack.loader.LoaderContext, remain: any, pre:any, 
 
   if (!constantFiles.includes(resourcePath)) return
 
-  return handleExport({
-    code,
-    resourcePath
-  })
+  const holder = ConstHolder.create(resourcePath)
+  if (!holder.transCode) throw new Error('请检查是否配置ConstRenamePlugin，或是否配置相同的files')
+  return holder.transCode
 }

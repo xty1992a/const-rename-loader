@@ -1,4 +1,4 @@
-import {handleExport} from '../../src/handle-export'
+import {handleExport} from '../../src/utils/handle-export'
 import  * as glob  from 'glob'
 import * as fs from 'fs'
 import * as path from 'path'
