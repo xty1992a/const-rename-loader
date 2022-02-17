@@ -18,3 +18,13 @@ export interface HandleExportOptions {
 }
 
 export interface HandleUseOptions extends HandleExportOptions {}
+
+export interface File {code: string, sourcePath: string}
+export type ExcludeFn = ((file:File) => boolean)
+export interface OptionalOption {
+  exclude?: string[] | ExcludeFn
+}
+
+export interface FakePluginOption {
+  root: (path: string) => string
+}

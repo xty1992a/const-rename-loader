@@ -2,8 +2,6 @@ import {Project, ts, VariableDeclaration} from 'ts-morph';
 import {ConstHolder} from '../utils'
 import * as fs from 'fs'
 import webpack from "webpack";
-import {execSync} from 'child_process'
-import {inspect} from 'util'
 
 export interface Options {
   files: string[]
@@ -113,7 +111,7 @@ export class ModifyConstPlugin {
     console.log('apply----->')
 
 
-    compiler.hooks.thisCompilation.tap(ModifyConstPlugin.PLUGIN_NAME, async (compilation,callback) => {
+    compiler.hooks.thisCompilation.tap(ModifyConstPlugin.PLUGIN_NAME, (compilation,callback) => {
       console.log('on run')
     })
 

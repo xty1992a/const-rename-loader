@@ -1,2 +1,3 @@
-export * from './plugins/const-rename-plugin'
-export * from './loader/'
+export * as loaders from './loaders'
+export * as plugins from './plugins'
+export * as uses from './uses'

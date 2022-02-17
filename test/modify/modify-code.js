@@ -1,8 +1,8 @@
-const {ts, Project, ReferenceEntry} = require('ts-morph');
+const {ts, Project} = require('ts-morph');
 const path = require('path');
 const root = (_path) => path.resolve(__dirname, '../..', _path);
 
-function run({root}) {
+function run({root, constFiles}) {
   const dir = _path => path.resolve(root, _path);
 
   const project = new Project({
@@ -13,7 +13,15 @@ function run({root}) {
 	skipAddingFilesFromTsConfig: true
   });
 
+  const isConstFile = file => constFiles.includes(file.getFilePath())
+
   const files = project.addSourceFilesAtPaths(dir('src/**/*.ts'));
+
+  const consts = files.filter(it => isConstFile(it)).map(file => ({
+	file,
+	name: path.parse(file.getBaseName()).name
+  }))
+  const normal = files.filter(it => !isConstFile(it))
 
   function getImportIdentRef(identifier) {
 	return identifier.findReferences()
@@ -22,7 +30,9 @@ function run({root}) {
 		.map(reference => reference.getNode())
   }
 
-  for (const file of files) {
+  for (const file of normal) {
+
+	console.log('处理文件', file.getFilePath())
 
 	file.getImportDeclarations()
 		.forEach(it => {
@@ -50,5 +60,8 @@ function run({root}) {
 }
 
 run({
-  root: root('test/project')
+  root: root('test/project'),
+  constFiles: [
+	root('test/project/src/const/color.ts')
+  ]
 });

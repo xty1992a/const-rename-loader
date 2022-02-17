@@ -1,27 +1,37 @@
 {
-  "name": "@redbuck/const-rename-loader",
+  "name": "@redbuck/taro-compiler-helper",
   "version": "1.0.0",
   "description": "混淆常量名称",
   "repository": "",
-  "main": "dist/loader.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc -p ."
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/babel__core": "^7.1.18",
     "@types/glob": "^7.2.0",
     "@types/loader-utils": "^2.0.3",
     "@types/webpack": "4",
     "glob": "^7.2.0",
     "loader-utils": "2",
+    "nodemon": "^2.0.15",
     "schema-utils": "^4.0.0",
     "ts-morph": "^13.0.3",
     "ts-node": "^10.5.0",
-    "typescript": "^4.5.5"
+    "typescript": "^4.5.5",
+    "webpack-chain": "4.9.0"
   },
   "dependencies": {
+    "@babel/core": "^7.17.4",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.16.7",
+    "@babel/plugin-proposal-optional-chaining": "^7.16.7",
+    "@babel/plugin-transform-typescript": "^7.16.8",
     "incstr": "^1.2.3"
   }
 }
