@@ -1,5 +1,5 @@
-import {FakePluginFactory} from "../plugins/fake-mini-plugin";
-import * as types from '../type';
+import { FakePluginFactory } from "../plugins";
+import * as types from "../type";
 
 export function useFakePlugin(MiniPlugin: any, option: types.FakePluginOption) {
   const old = MiniPlugin.default;

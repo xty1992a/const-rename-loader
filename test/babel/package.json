@@ -1,0 +1,16 @@
+{
+  "name": "babel-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/generator": "^7.17.3",
+    "@babel/parser": "^7.17.3",
+    "@babel/traverse": "^7.17.3"
+  },
+  "devDependencies": {}
+}

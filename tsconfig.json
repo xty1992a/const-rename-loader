@@ -3,12 +3,9 @@
     "moduleResolution": "node",
     "module": "commonjs",
     "target": "es2016",
-    "lib": [
-      "es5",
-      "scripthost",
-      "esnext",
-      "dom"
-    ],
+    "declarationDir": "dist",
+    "declaration": true,
+    "lib": ["es5", "scripthost", "esnext", "dom"],
     "baseUrl": "./",
     "outDir": "dist",
     "esModuleInterop": true,
@@ -16,10 +13,6 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "exclude": [
-    "node_modules"
-  ],
-  "include": [
-    "src"
-  ]
+  "exclude": ["node_modules"],
+  "include": ["src"]
 }
