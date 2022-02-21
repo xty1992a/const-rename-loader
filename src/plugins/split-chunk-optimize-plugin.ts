@@ -137,8 +137,6 @@ export class MiniSplitChunksPlugin extends SplitChunksPlugin {
             );
           });
 
-          console.log("done for handle subChunks");
-
           const options: webpack.Options.SplitChunksOptions = {
             ...compiler?.options.optimization?.splitChunks,
             cacheGroups: {
@@ -147,9 +145,7 @@ export class MiniSplitChunksPlugin extends SplitChunksPlugin {
               ...this.getSubCommonCacheGroup(),
             },
           };
-          console.log("done for handle options");
           this.options = SplitChunksPlugin.normalizeOptions(options);
-          console.log("optimize chunks done", typeof this.options, options);
         } catch (e) {
           console.log(e);
           console.log("error");
@@ -193,7 +189,6 @@ export class MiniSplitChunksPlugin extends SplitChunksPlugin {
         PLUGIN_NAME,
         // @ts-ignore
         (modules, chunk) => {
-          console.log("render with entry");
           if (this.isSubChunk(chunk)) {
             const chunkName = chunk.name;
             const chunkSubRoot =
@@ -239,7 +234,6 @@ export class MiniSplitChunksPlugin extends SplitChunksPlugin {
             source.add(";");
             return source;
           }
-          console.log("render with entry done");
         }
       );
       // console.log('compilation done')
@@ -247,7 +241,6 @@ export class MiniSplitChunksPlugin extends SplitChunksPlugin {
     compiler.hooks.emit.tapAsync(
       PLUGIN_NAME,
       this.tryAsync(async (compilation: webpack.compilation.Compilation) => {
-        console.log("emit");
         const assets = compilation.assets;
         const wxmls = Object.getOwnPropertyNames(assets).filter((name) =>
           /\.wxml$/.test(name)
@@ -359,12 +352,9 @@ export class MiniSplitChunksPlugin extends SplitChunksPlugin {
             source: () => pageWxssSource.source(),
           };
         });
-
-        console.log("emit done");
       })
     );
     compiler.hooks.afterEmit.tap(PLUGIN_NAME, () => {
-      console.log("after emit");
       const subCommonPath = path.resolve(this.distPath, SUB_COMMON_DIR);
       if (!fs.pathExistsSync(subCommonPath)) {
         return;

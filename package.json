@@ -1,10 +1,11 @@
 {
   "name": "@redbuck/taro-compiler-helper",
-  "version": "1.0.2-beta.0",
+  "version": "1.0.2-beta.1",
   "description": "taro2编译插件",
   "repository": "",
   "main": "dist/index.js",
   "scripts": {
+    "prepublish": "yarn build",
     "build": "rm -rf dist && tsc -p .",
     "pretty": "pretty-quick --staged"
   },
